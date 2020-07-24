@@ -8,6 +8,10 @@ router.use('/comments',require('./comments'));
 router.get('/',home);
 router.use('/likes',require('./likes'));
 router.use('/friends',require('./friends'));
-
+router.get('/worldchat',(req,res)=>{
+    res.render('_chat_box',{
+        title:'World chat'
+    });
+})
 
 module.exports=router;

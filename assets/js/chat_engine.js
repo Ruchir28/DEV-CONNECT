@@ -20,9 +20,10 @@ class ChatEngine {
             })
 
             self.socket.on('user_joined', (data) => {
-                console.log('a user joined', data);
+              
             });
             $('#send-message').click(function () {
+                console.log('clicked 123');
                 let msg = $('#chat-message-input').val();
                 if (msg != '') {
                     self.socket.emit('send_message', {

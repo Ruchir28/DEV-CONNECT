@@ -41,6 +41,7 @@
                         <% } %>
                     </div>
                     <div class="card-body" id='comment-form-<%=posts[id]._id%>' style="display: none;">
+                        <% if(locals.user){ %> 
                         <form id="C-form"  action="/comments/create" method="POST">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Add Comment</label>
@@ -50,6 +51,7 @@
                             <input type="hidden" name="post" value="<%= posts[id]._id %>">
                             <button type="submit"  id="comment-btn-1"  class="btn btn-primary btn-sm">Submit</button>
                         </form>
+                    <% } %> 
                         <div id="comments-container">
                             <ul style="list-style-type: none;">
                                 <% posts[id].comments && posts[id].comments.map((comment)=>{ %>
@@ -71,7 +73,7 @@
             <% }) %>
         </ul>
     </div>
-    <%- include('_chat_box.ejs')  %> 
+   
 </div>
 
 <script src="/js/home_script.js"></script>

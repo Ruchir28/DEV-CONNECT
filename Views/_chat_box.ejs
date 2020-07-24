@@ -1,21 +1,30 @@
 <link rel="stylesheet" href="/css/chat_box.css">
+<h3 style="text-align: center;" class="display-3">World Chat</h3>
+<div class="alert alert-warning" role="alert">
+  You message aren't Stored
+  </div>
 <% if(locals.user) { %>
-    <div id="user-chat-box">
+    <div id="user-chat-box" class="container">
         <ul id="chat-messages-list">
             <li class="other-message">
-                <span>
-                    Other-message
-                </span>
+               
             </li>
             <li class="self-message">
-                <span>
-                    Self-message
-                </span>
+             
             </li>
-            <div id="chat-message-input-container">
-                <input id="chat-message-input" placeholder="type-message-here">
-                <button id="send-message">Send</button>
-            </div>
         </ul>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Type message Here</label>
+            <input type="text" class="form-control" id="chat-message-input">
+          </div>
+        
+          <button class="btn btn-primary" id="send-message">Send</button>
     </div> 
 <% } %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+<% if(locals.user){ %> 
+    <script>
+        new ChatEngine('user-chat-box','<%= locals.user.email %>');
+    </script>
+<% } %> 
