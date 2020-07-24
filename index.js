@@ -22,8 +22,6 @@ const chatSockets=require('./config/chat_sockets').chatSockets(chatServer);
 
 chatServer.listen(5000);
 
-
-
 app.use(express.urlencoded());
 
 app.use(cookieparser());
